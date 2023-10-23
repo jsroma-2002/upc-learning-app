@@ -1,5 +1,16 @@
 import { Room } from "./types/room";
 
+export const characters = [
+  {
+    id: "1",
+    name: "Prof. Juan Perez",
+    description: "Un profesor de la escuela",
+    image: "/src/assets/characters/profesor.svg",
+    positionX: 2,
+    positionY: 1,
+  }
+]
+
 export const rooms: Room[] = [
   {
     id: "1",

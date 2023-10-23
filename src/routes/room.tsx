@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Room as RoomType } from "../types/room";
 import { getRoomByPosition } from "../utils/RoomUtils";
+import ObjetiveList from "../components/ObjetiveList";
+import ExitDialog from "../components/ExitDialog";
 
 function Room() {
   const { positionX, positionY } = useParams<{
@@ -21,6 +23,8 @@ function Room() {
     floor: 0,
     minimap: "/src/assets/minimap/x0y0.svg",
   });
+
+  const dialog = document.querySelector("dialog");
 
   const moveToRoom = (positionX: number, positionY: number) => {
     const room = getRoomByPosition(positionX.toString(), positionY.toString());
@@ -61,46 +65,38 @@ function Room() {
 
   return (
     <>
-      <header>
-        Room {positionX} {positionY}
-        <button
-          className="border-4 m-4"
-          onClick={() => {
-            moveToRoom(Number(positionX) - 1, Number(positionY));
+      <dialog className="w-1/3 h-1/3 p-8 border-2 border-gray-500 rounded-lg shadow bg-black">
+        <ExitDialog
+          positionX={roomInfo.positionX}
+          positionY={roomInfo.positionY}
+          exitAction={() => {
+            dialog?.close();
           }}
-        >
-          Izquierda
-        </button>
-        <button
-          className="border-4 m-4"
-          onClick={() => {
-            moveToRoom(Number(positionX) + 1, Number(positionY));
-          }}
-        >
-          Derecha
-        </button>
-        <button
-          className="border-4 m-4"
-          onClick={() => {
-            moveToRoom(Number(positionX), Number(positionY) + 1);
-          }}
-        >
-          Arriba
-        </button>
-        <button
-          className="border-4 m-4"
-          onClick={() => {
-            moveToRoom(Number(positionX), Number(positionY) - 1);
-          }}
-        >
-          Abajo
-        </button>
-      </header>
-      <main>
-        <p>Contenido de la habitación</p>
-        <p>{roomInfo.description}</p>
-        <img src={roomInfo.minimap} alt={roomInfo.description} />
-        <img src={roomInfo.image} alt={roomInfo.description} />
+        />
+      </dialog>
+      <main className="h-screen w-screen">
+        <img
+          className="absolute w-full h-full"
+          src={roomInfo.image}
+          alt={roomInfo.description}
+        />
+        <img
+          className="absolute w-80 translate-x-5 bottom-4"
+          src={roomInfo.minimap}
+          alt={roomInfo.description}
+        />
+        <div className="absolute w-80 translate-x-5 top-4 ">
+          <button
+            type="button"
+            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-4 text-center inline-flex items-center mr-2 0"
+            onClick={() => {
+              dialog?.showModal();
+            }}
+          >
+            X
+          </button>
+        </div>
+        <ObjetiveList />
       </main>
     </>
   );

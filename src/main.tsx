@@ -5,6 +5,8 @@ import "./index.css";
 import Root from "./routes/root";
 import ErrorPage from "./pages/ErrorPage";
 import Room from "./routes/room";
+import New from "./routes/new";
+import Tutorial from "./routes/tutorial";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +20,17 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
     ],
-  }
+  },
+  {
+    path: "/new",
+    element: <New />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/tutorial",
+    element: <Tutorial />,
+    errorElement: <ErrorPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
