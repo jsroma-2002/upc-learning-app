@@ -4,6 +4,7 @@ import { Room as RoomType } from "../types/room";
 import { getRoomByPosition } from "../utils/RoomUtils";
 import ObjetiveList from "../components/ObjetiveList";
 import ExitDialog from "../components/ExitDialog";
+import { characters } from "../const";
 
 function Room() {
   const { positionX, positionY } = useParams<{
@@ -24,7 +25,7 @@ function Room() {
     minimap: "/src/assets/minimap/x0y0.svg",
   });
 
-  const dialog = document.querySelector("dialog");
+  const exitDialog = document.querySelector("dialog");
 
   const moveToRoom = (positionX: number, positionY: number) => {
     const room = getRoomByPosition(positionX.toString(), positionY.toString());
@@ -65,12 +66,15 @@ function Room() {
 
   return (
     <>
-      <dialog className="w-1/3 h-1/3 p-8 border-2 border-gray-500 rounded-lg shadow bg-black">
+      <dialog
+        id="exit-dialog"
+        className="w-1/3 h-1/3 p-8 border-2 border-gray-500 rounded-lg shadow bg-black"
+      >
         <ExitDialog
           positionX={roomInfo.positionX}
           positionY={roomInfo.positionY}
           exitAction={() => {
-            dialog?.close();
+            exitDialog?.close();
           }}
         />
       </dialog>
@@ -80,6 +84,33 @@ function Room() {
           src={roomInfo.image}
           alt={roomInfo.description}
         />
+        {characters.map((character) => {
+          return (
+            roomInfo.positionX === character.positionX &&
+            roomInfo.positionY === character.positionY && (
+              <div className="absolute h-full flex flex-row justify-around items-center gap-6 w-full">
+                <img
+                  key={character.id}
+                  className="w-[32%] left-10 cursor-pointer h-full"
+                  src={character.image}
+                  alt={character.description}
+                />
+                <img
+                  key={character.id}
+                  className="w-[32%] left-10 cursor-pointer h-full"
+                  src={character.image}
+                  alt={character.description}
+                />
+                <img
+                  key={character.id}
+                  className="w-[32%] left-10 cursor-pointer h-full"
+                  src={character.image}
+                  alt={character.description}
+                />
+              </div>
+            )
+          );
+        })}
         <img
           className="absolute w-80 translate-x-5 bottom-4"
           src={roomInfo.minimap}
@@ -90,7 +121,7 @@ function Room() {
             type="button"
             className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-4 text-center inline-flex items-center mr-2 0"
             onClick={() => {
-              dialog?.showModal();
+              exitDialog?.showModal();
             }}
           >
             X

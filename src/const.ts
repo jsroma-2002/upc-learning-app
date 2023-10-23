@@ -5,11 +5,11 @@ export const characters = [
     id: "1",
     name: "Prof. Juan Perez",
     description: "Un profesor de la escuela",
-    image: "/src/assets/characters/profesor.svg",
+    image: "/src/assets/characters/teacher1.svg",
     positionX: 2,
     positionY: 1,
-  }
-]
+  },
+];
 
 export const rooms: Room[] = [
   {
