@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Root from "./routes/root";
 import ErrorPage from "./pages/ErrorPage";
 import Room from "./routes/room";
 import New from "./routes/new";
 import Tutorial from "./routes/tutorial";
+import Root from "./routes/root";
+import ChatRoute from "./routes/chatRoute";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
       {
         path: "/x/:positionX/y/:positionY",
         element: <Room />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/x/:positionX/y/:positionY/chat/:characterId",
+        element: <ChatRoute />,
         errorElement: <ErrorPage />,
       },
     ],

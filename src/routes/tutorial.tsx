@@ -22,21 +22,20 @@ function Tutorial() {
           Tutorial
         </h1>
         <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">
-          Este proyecto consiste en un juego de aventura gráfica en el que el
-          jugador deberá ir superando diferentes objetivos relacionados a los
-          procesos y tramites de la universidad. Para ello deberás recorrer el
-          mapa e interactuar con los diferentes personajes que te iras
-          encontrando
+          Este proyecto consiste en un juego de aventura gráfica en el que
+          deberás ir superando diferentes objetivos relacionados a los procesos
+          y tramites de la universidad. Para ello deberás recorrer el mapa e
+          interactuar con los diferentes personajes que te iras encontrando
           <div
             className="p-4 mb-4 text-sm text-blue-800 rounded-lg m-2 bg-blue-50 "
             role="alert"
           >
             <span className="font-medium">Consejo!</span> Para interactuar con
-            los personajes deberás acercarte a ellos y hacer click sobre ellos.
+            los personajes deberás acercarte y hacer click sobre ellos.
           </div>
-          Estos personajes tienen un inteligencia artificial incorporada que te
-          permitirá interactuar con ellos de una manera natural asi que no dudes
-          en preguntarles!
+          Estos personajes tienen inteligencia artificial incorporada que te
+          permitirá interactuar de una manera natural asi que no dudes en
+          preguntarles!
           <br />
           <br />
           Para moverte por el mapa utiliza las teclas:

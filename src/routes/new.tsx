@@ -22,10 +22,10 @@ function New() {
         de esta elevada deserción es la de adaptación de la secundaria a la
         universidad, pues el cambio brusco de lineamientos y normas académicas
         tiene un impacto negativo en el rendimiento estudiantil. Por este motivo
-        que hemos creado este juego para que puedas aprender de una manera
-        divertida y amena y adaptarte de la mejor forma posible a esta nueva
+        hemos creado este juego para que puedas aprender de una manera
+        divertida y amena para adaptarte de la mejor forma posible a esta nueva
         etapa de tu vida. Esperamos puedas aprender mucho y disfrutar de este
-        juego!.
+        juego!
       </p>
       <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
         <a

@@ -1,0 +1,34 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Prof. Juan Perez",
+      "description": "Profesor de la materia de programación",
+      "profilePic": "/src/assets/characters/profileTeacher1.svg",
+      "avatarImg": "/src/assets/characters/teacher1.svg",
+      "positionX": 2,
+      "positionY": 1,
+      "roomSlot": 0
+    },
+    {
+      "id": 2,
+      "name": "Prof. Mario Espina",
+      "description": "Profesor de ética y valores",
+      "profilePic": "/src/assets/characters/profileTeacher1.svg",
+      "avatarImg": "/src/assets/characters/teacher1.svg",
+      "positionX": 2,
+      "positionY": 2,
+      "roomSlot": 1
+    },
+    {
+      "id": 3,
+      "name": "Prof. Rosa Castro",
+      "description": "Profesora de historia",
+      "profilePic": "/src/assets/characters/profileTeacher1.svg",
+      "avatarImg": "/src/assets/characters/teacher1.svg",
+      "positionX": 1,
+      "positionY": 2,
+      "roomSlot": 2
+    }
+  ]
+}

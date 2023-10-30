@@ -4,7 +4,7 @@ import { Room as RoomType } from "../types/room";
 import { getRoomByPosition } from "../utils/RoomUtils";
 import ObjetiveList from "../components/ObjetiveList";
 import ExitDialog from "../components/ExitDialog";
-import { characters } from "../const";
+import dataCharacters from "../data/characters.json";
 
 function Room() {
   const { positionX, positionY } = useParams<{
@@ -84,33 +84,28 @@ function Room() {
           src={roomInfo.image}
           alt={roomInfo.description}
         />
-        {characters.map((character) => {
-          return (
-            roomInfo.positionX === character.positionX &&
-            roomInfo.positionY === character.positionY && (
-              <div className="absolute h-full flex flex-row justify-around items-center gap-6 w-full">
+
+        <div className="absolute h-full flex flex-row justify-around items-center gap-6 w-full">
+          {dataCharacters.characters.map((character) => {
+            return (
+              roomInfo.positionX === character.positionX &&
+              roomInfo.positionY === character.positionY && (
                 <img
+                  onClick={() =>
+                    navigate(
+                      `/x/${positionX}/y/${positionY}/chat/${character.id}`
+                    )
+                  }
                   key={character.id}
                   className="w-[32%] left-10 cursor-pointer h-full"
-                  src={character.image}
+                  src={character.avatarImg}
                   alt={character.description}
                 />
-                <img
-                  key={character.id}
-                  className="w-[32%] left-10 cursor-pointer h-full"
-                  src={character.image}
-                  alt={character.description}
-                />
-                <img
-                  key={character.id}
-                  className="w-[32%] left-10 cursor-pointer h-full"
-                  src={character.image}
-                  alt={character.description}
-                />
-              </div>
-            )
-          );
-        })}
+              )
+            );
+          })}
+        </div>
+
         <img
           className="absolute w-80 translate-x-5 bottom-4"
           src={roomInfo.minimap}
