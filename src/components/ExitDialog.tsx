@@ -1,13 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate } from "react-router-dom";
+import { useItemsStore } from "../store/itemsStore";
 
 interface RoomInfo {
   positionX: number;
   positionY: number;
+  objectives: any[];
   exitAction: () => void;
 }
 
 function ExitDialog(props: RoomInfo) {
   const navigate = useNavigate();
+
+  const { items } = useItemsStore();
 
   return (
     <div className="relative">
@@ -64,7 +69,8 @@ function ExitDialog(props: RoomInfo) {
                 JSON.stringify({
                   positionX: props.positionX,
                   positionY: props.positionY,
-                  inventory: [],
+                  inventory: items,
+                  objectives: props.objectives,
                   creationDate: new Date(),
                 })
               );
@@ -83,7 +89,8 @@ function ExitDialog(props: RoomInfo) {
                 JSON.stringify({
                   positionX: props.positionX,
                   positionY: props.positionY,
-                  inventory: [],
+                  inventory: items,
+                  objectives: props.objectives,
                   creationDate: new Date(),
                 })
               );

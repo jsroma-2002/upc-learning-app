@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import dataObjetives from "../data/objectives.json";
 
 function New() {
   const navigate = useNavigate();
@@ -7,6 +8,7 @@ function New() {
     positionX: 0,
     positionY: 0,
     inventory: [],
+    objectives: dataObjetives.objectives,
     creationDate: new Date(),
   };
 

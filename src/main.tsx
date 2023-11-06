@@ -8,6 +8,11 @@ import New from "./routes/new";
 import Tutorial from "./routes/tutorial";
 import Root from "./routes/root";
 import ChatRoute from "./routes/chatRoute";
+import ItemsRoute from "./routes/itemsRoute";
+import ObjectivesRoute from "./routes/objectivesRoute";
+import MapRoute from "./routes/mapRoute";
+import { Toaster } from 'react-hot-toast';
+import EndRoute from "./routes/endRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +30,26 @@ const router = createBrowserRouter([
         element: <ChatRoute />,
         errorElement: <ErrorPage />,
       },
+      {
+        path: "/x/:positionX/y/:positionY/items",
+        element: <ItemsRoute />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/x/:positionX/y/:positionY/map",
+        element: <MapRoute />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/x/:positionX/y/:positionY/objectives",
+        element: <ObjectivesRoute />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/end",
+        element: <EndRoute />,
+        errorElement: <ErrorPage />,
+      }
     ],
   },
   {
@@ -42,5 +67,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Toaster />
   </React.StrictMode>
 );

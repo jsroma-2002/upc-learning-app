@@ -11,6 +11,33 @@ export const characters = [
   },
 ];
 
+export const roomTypes = [
+  {
+    id: "1",
+    name: "Salon de Clase",
+    description: "Un salon de clase con 20 computadoras",
+    identifier: "[C]"
+  },
+  {
+    id: "2",
+    name: "Un patio",
+    description: "Un patio del campus con areas verdes",
+    identifier: "[P]"
+  },
+  {
+    id: "3",
+    name: "Servicios Universitarios",
+    description: "Una sala administrativa donde se pueden solicitar recursos",
+    identifier: "[S]"
+  },
+  {
+    id: "4",
+    name: "Biblioteca",
+    description: "Biblioteca del campus cuenta con libros y un area de lectura",
+    identifier: "[B]"
+  }
+];
+
 export const rooms: Room[] = [
   {
     id: "1",

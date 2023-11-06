@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "Ipad",
+      "description": "Ipad prestado de UPC",
+      "image": "/src/assets/items/tablet.webp",
+      "positionX": -1,
+      "positionY": 3
+    },
+    {
+      "id": "2",
+      "name": "libro",
+      "description": "libro de la biblioteca de UPC",
+      "image": "/src/assets/items/book.png",
+      "positionX": 0,
+      "positionY": 4
+    }
+  ]
+}

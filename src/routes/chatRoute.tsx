@@ -4,6 +4,8 @@ import { Room as RoomType } from "../types/room";
 import { getRoomByPosition } from "../utils/RoomUtils";
 import dataCharacters from "../data/characters.json";
 import { getResponse } from "../services/chatService";
+import toast from "react-hot-toast";
+import { useItemsStore } from "../store/itemsStore";
 
 function ChatRoute() {
   const { positionX, positionY, characterId } = useParams<{
@@ -19,6 +21,11 @@ function ChatRoute() {
   };
 
   const navigate = useNavigate();
+
+  const { items } = useItemsStore();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [objectives, setObjetives] = useState<any[]>([]);
 
   const [roomInfo, setRoomInfo] = useState<RoomType>({
     id: "1",
@@ -54,7 +61,26 @@ function ChatRoute() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [characterInfo]);
 
+  useEffect(() => {
+    setObjetives(JSON.parse(localStorage.getItem("game")!).objectives);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const [messageQueue, setMessageQueue] = useState<string[]>([]);
+
+  const saveGame = () => {
+    localStorage.setItem(
+      "game",
+      JSON.stringify({
+        positionX: positionX,
+        positionY: positionY,
+        inventory: items,
+        objectives: objectives,
+        creationDate: new Date(),
+      })
+    );
+  };
 
   useEffect(() => {
     //if last message is from student
@@ -62,7 +88,18 @@ function ChatRoute() {
       if (messageQueue[messageQueue.length - 1].includes("Estudiante")) {
         getResponse(messageQueue[messageQueue.length - 1], characterInfo.name)
           .then((response) => {
-            setMessageQueue([...messageQueue, response]);
+            setMessageQueue([...messageQueue, response[0]]);
+            if (
+              response[1] === "MiHorariodeclases" &&
+              objectives[0].tasks[1].status != true
+            ) {
+              objectives[0].tasks[1].status = true;
+              setObjetives(objectives);
+              toast.success(
+                "Felicidades has completo una tarea de tu objetivo. Sigue asi!"
+              );
+              saveGame();
+            }
           })
           .finally(() => {
             (document.getElementById("message") as HTMLInputElement).value = "";
@@ -90,12 +127,26 @@ function ChatRoute() {
         />
         <div className="absolute w-full top-20 flex flex-row gap-8 items-center justify-center">
           <div
-            className="w-2/3 h-56 border-4 bg-white border-black focus:ring-4 focus:outline-none rounded-lg p-4 text-center inline-flex items-center mr-2 0 text-xl font-bold overflow-auto"
+            className="w-2/3 h-56 border-4 bg-white border-black focus:ring-4 focus:outline-none rounded-lg p-4 inline-flex items-center mr-2 0 text-xl overflow-auto"
             id="responseArea"
           >
             <p className="h-full w-full">
               {messageQueue.map((message, index) => {
-                return <div key={index}>{message}</div>;
+                return message.includes("Estudiante") ? (
+                  <div
+                    className="text-white p-2 bg-blue-500 rounded-xl my-2"
+                    key={index}
+                  >
+                    {message}
+                  </div>
+                ) : (
+                  <div
+                    className="text-white text-left p-2 bg-black rounded-xl my-2"
+                    key={index}
+                  >
+                    {message}
+                  </div>
+                );
               })}
             </p>
           </div>

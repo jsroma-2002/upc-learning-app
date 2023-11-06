@@ -1,0 +1,23 @@
+{
+  "objectives": [
+    {
+      "id": "1",
+      "name": "Empieza tus clases",
+      "description": "Prepárate e infórmate sobre como comenzar tus clases",
+      "tasks": [
+        {
+          "id": "1",
+          "name": "Obtén un libro de la biblioteca",
+          "description": "Ve a la biblioteca y obtén un libro de texto",
+          "status": false
+        },
+        {
+          "id": "2",
+          "name": "Consulta sobre tu horario",
+          "description": "Habla con un profesor y pregúntale sobre tu horario de clases",
+          "status": false
+        }
+      ]
+    }
+  ]
+}
