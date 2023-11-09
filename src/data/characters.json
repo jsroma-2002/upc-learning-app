@@ -14,8 +14,8 @@
       "id": 2,
       "name": "Prof. Mario Espina",
       "description": "Profesor de ética y valores",
-      "profilePic": "/src/assets/characters/profileTeacher1.svg",
-      "avatarImg": "/src/assets/characters/teacher1.svg",
+      "profilePic": "/src/assets/characters/profileTeacher2.svg",
+      "avatarImg": "/src/assets/characters/teacher2.svg",
       "positionX": 2,
       "positionY": 2,
       "roomSlot": 1
@@ -24,8 +24,8 @@
       "id": 3,
       "name": "Prof. Rosa Castro",
       "description": "Profesora de historia",
-      "profilePic": "/src/assets/characters/profileTeacher1.svg",
-      "avatarImg": "/src/assets/characters/teacher1.svg",
+      "profilePic": "/src/assets/characters/profileTeacher3.svg",
+      "avatarImg": "/src/assets/characters/teacher3.svg",
       "positionX": 1,
       "positionY": 2,
       "roomSlot": 2

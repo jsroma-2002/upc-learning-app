@@ -21,11 +21,11 @@ function New() {
         Hola, bienvenido a nuestro proyecto de aprendizaje de lineamientos
         universitarios. Sabias que entre el 15% y 25% de los alumnos
         universitarios desertan en el primer año de estudios. Uno de lo motivos
-        de esta elevada deserción es la de adaptación de la secundaria a la
+        de esta elevada deserción es la falta de adaptación de la secundaria a la
         universidad, pues el cambio brusco de lineamientos y normas académicas
         tiene un impacto negativo en el rendimiento estudiantil. Por este motivo
         hemos creado este juego para que puedas aprender de una manera
-        divertida y amena para adaptarte de la mejor forma posible a esta nueva
+        divertida y amena adaptándote de la mejor forma posible a esta nueva
         etapa de tu vida. Esperamos puedas aprender mucho y disfrutar de este
         juego!
       </p>
